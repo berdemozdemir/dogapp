@@ -1,13 +1,12 @@
-import DogItem from "./dog-item";
+import CatItem from "./cat-item";
 
-const DogList = (props) => {
+const CatList = (props) => {
   return (
     <ul className="px-[10%] w-full mx-auto my-8 grid sm:grid-cols-3 grid-cols-1 ">
-      {console.log(props)}
       {props?.cats?.map((cat) => (
-        <DogItem key={cat.id} cat={cat} />
+        <CatItem key={cat.id} cat={cat} />
       ))}
     </ul>
   );
 };
-export default DogList;
+export default CatList;

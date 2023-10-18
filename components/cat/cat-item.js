@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-const DogItem = (props) => {
+const CatItem = (props) => {
   const { url, id } = props.cat;
 
   return (
@@ -20,4 +20,4 @@ const DogItem = (props) => {
   );
 };
 
-export default DogItem;
+export default CatItem;

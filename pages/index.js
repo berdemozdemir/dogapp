@@ -1,7 +1,7 @@
 import { useState } from "react";
 
-import SelectBreed from "@/components/dog/selectBreed";
-import DogList from "@/components/dog/dog-list";
+import SelectBreed from "@/components/cat/selectBreed";
+import CatList from "@/components/cat/cat-list";
 
 export default function Home() {
   const [cats, setCats] = useState([]);
@@ -9,7 +9,7 @@ export default function Home() {
   return (
     <>
       <SelectBreed setCats={setCats} />
-      <DogList cats={cats} />
+      <CatList cats={cats} />
     </>
   );
 }

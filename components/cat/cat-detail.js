@@ -2,18 +2,18 @@ import { useQuery } from "@tanstack/react-query";
 import Link from "next/link";
 import { useRouter } from "next/router";
 
-import { fetchDogDetail } from "@/util/https";
+import { fetchCatDetail } from "@/util/https";
 import ErrorBlock from "@/components/UI/ErrorBlock";
 import Loading from "@/components/UI/Loading";
 
-const DogDetail = () => {
+const CatDetail = () => {
   const router = useRouter();
 
-  const DogDetail = router.query.DogDetail;
+  const CatDetail = router.query.CatDetail;
 
   const { data, isPending, error, isError } = useQuery({
-    queryKey: ["dogs", DogDetail],
-    queryFn: () => fetchDogDetail(DogDetail),
+    queryKey: ["cats", CatDetail],
+    queryFn: () => fetchCatDetail(CatDetail),
   });
 
   let content;
@@ -33,6 +33,7 @@ const DogDetail = () => {
       />
     );
   }
+  console.log(data);
 
   if (data) {
     const breed = data.breeds[0];
@@ -43,10 +44,9 @@ const DogDetail = () => {
       >
         <img src={data.url} alt={breed?.name} />
         <div className="bg-gray-300 flex items-center flex-col p-4 text-2xl">
-          <h2 className="text-4xl font-bold">{breed?.name}</h2>
-          <p>{breed && breed?.bred_for}</p>
-          <p>{breed?.group}</p>
-          <p>{breed?.life_span}</p>
+          <h2 className="text-4xl font-bold mb-4">{breed?.name}</h2>
+          <p>{breed?.description}</p>
+          <p>Life: {breed?.life_span}</p>
           <Link
             href="./"
             className="px-6 py-3 my-4 text-2xl bg-gray-400 rounded border cursor-pointer hover:bg-white"
@@ -61,4 +61,4 @@ const DogDetail = () => {
   return content;
 };
 
-export default DogDetail;
+export default CatDetail;

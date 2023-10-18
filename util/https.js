@@ -2,7 +2,7 @@ const { QueryClient } = require("@tanstack/react-query");
 
 export const queryClient = new QueryClient();
 
-export async function fetchDogDetail(id) {
+export async function fetchCatDetail(id) {
   const response = await fetch(`https://api.thecatapi.com/v1/images/${id}`);
 
   if (!response.ok) {
