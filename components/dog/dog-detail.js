@@ -9,11 +9,11 @@ import Loading from "@/components/UI/Loading";
 const DogDetail = () => {
   const router = useRouter();
 
-  const dogDetail = router.query.DogDetail;
+  const DogDetail = router.query.DogDetail;
 
   const { data, isPending, error, isError } = useQuery({
-    queryKey: ["dogs", dogDetail],
-    queryFn: () => fetchDogDetail(dogDetail),
+    queryKey: ["dogs", DogDetail],
+    queryFn: () => fetchDogDetail(DogDetail),
   });
 
   let content;
@@ -34,7 +34,7 @@ const DogDetail = () => {
     );
   }
 
-  if (data && data.breeds && data.breeds[0]) {
+  if (data) {
     const breed = data.breeds[0];
 
     content = (

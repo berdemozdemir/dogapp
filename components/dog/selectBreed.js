@@ -15,29 +15,28 @@ const SelectBreed = (props) => {
     fetchBreed();
   }, []);
 
-  console.log(breeds);
-
   const submitHandler = async (event) => {
     event.preventDefault();
 
     const enteredValue = selectInputRef.current.value;
 
     const response = await fetch(
-      `https://api.thedogapi.com/v1/images/search?api_key=live_I1rWYTyr4pZeJJwHD35eTfHyTKk9OAEOlGwYp98MdePtEQCYIJcd8d6hOFcXLRF6&page=0&breed_ids=${enteredValue}&limit=10`
+      `https://api.thecatapi.com/v1/images/search?api_key=live_I1rWYTyr4pZeJJwHD35eTfHyTKk9OAEOlGwYp98MdePtEQCYIJcd8d6hOFcXLRF6&page=0&breed_ids=${enteredValue}&limit=10`
     );
 
-    props.onSearchDog(enteredValue);
-    props.setCats(response);
+    const data = await response.json();
+
+    props.setCats(data);
   };
 
   return (
     <form
       onSubmit={submitHandler}
-      className="w-full mx-auto flex justify-center my-20 px-[10%]"
+      className="mx-auto flex justify-center mt-12 px-12"
     >
       <select
         ref={selectInputRef}
-        className="px-6 py-3 w-[30rem] rounded-l-md font-bold text-3xl"
+        className="py-3 rounded-l-md font-bold text-3xl"
       >
         <option>Default</option>
 
@@ -49,7 +48,7 @@ const SelectBreed = (props) => {
       </select>
       <button
         type="submit"
-        className="p-6 px-3 font-bold text-2xl bg-gray-500 text-white rounded-r-md"
+        className="p-6 px-3 font-bold text-2xl bg-gray-500 text-white rounded-r-md hover:bg-gray-300 hover:text-black"
       >
         Submit
       </button>

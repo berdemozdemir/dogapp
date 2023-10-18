@@ -1,23 +1,15 @@
 import { useState } from "react";
 
-import Dog from "@/components/dog/dog";
 import SelectBreed from "@/components/dog/selectBreed";
+import DogList from "@/components/dog/dog-list";
 
 export default function Home() {
-  const [searchTerm, setSearchTerm] = useState(null);
   const [cats, setCats] = useState([]);
-
-  function searchHandler(searchTerm) {
-    setSearchTerm(searchTerm);
-  }
 
   return (
     <>
-      <SelectBreed onSearchDog={searchHandler} setCats={setCats} />
-      <Dog cats={cats} searchTerm={searchTerm} />
+      <SelectBreed setCats={setCats} />
+      <DogList cats={cats} />
     </>
   );
 }
-
-// detay sayfasindaki buton yeni istek atiyor
-// breed'i olmayan programi cokertiyor

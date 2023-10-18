@@ -1,14 +1,14 @@
 import Link from "next/link";
 
 const DogItem = (props) => {
-  const { url, id } = props.dog;
+  const { url, id } = props.cat;
 
   return (
     <li className="px-[20%] sm:px-4 py-10 sm:p-4 w-auto overflow-hidden">
       <img
         src={url}
         alt={id}
-        className="w-full h-[350px] object-fill sm:object-cover rounded-t-lg"
+        className="w-full h-[250px] object-fill rounded-t-lg"
       />
       <Link
         href={`/${id}`}
