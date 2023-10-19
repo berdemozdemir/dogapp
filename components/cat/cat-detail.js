@@ -21,7 +21,7 @@ const CatDetail = () => {
   if (isPending) {
     content = <Loading />;
   }
-
+  //streak mode
   if (isError) {
     content = (
       <ErrorBlock
