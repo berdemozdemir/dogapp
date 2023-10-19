@@ -1,3 +1,4 @@
+import { fetchBreeds } from "@/util/https";
 import { useEffect, useRef, useState } from "react";
 
 const SelectBreed = (props) => {
@@ -10,8 +11,11 @@ const SelectBreed = (props) => {
       const data = await response.json();
 
       setBreeds(data);
+      props.setCats(data)
+
       return data;
     };
+
     fetchBreed();
   }, []);
 
@@ -36,7 +40,7 @@ const SelectBreed = (props) => {
     >
       <select
         ref={selectInputRef}
-        className="py-3 rounded-l-md font-bold text-3xl"
+        className="py-3 rounded-l-md font-bold text-3xl border pl-3 cursor-pointer"
       >
         <option>Default</option>
 
