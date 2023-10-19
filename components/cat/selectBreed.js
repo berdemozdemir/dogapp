@@ -11,7 +11,7 @@ const SelectBreed = (props) => {
       const data = await response.json();
 
       setBreeds(data);
-      props.setCats(data)
+      props.setCats(data);
 
       return data;
     };
@@ -24,13 +24,7 @@ const SelectBreed = (props) => {
 
     const enteredValue = selectInputRef.current.value;
 
-    const response = await fetch(
-      `https://api.thecatapi.com/v1/images/search?api_key=live_I1rWYTyr4pZeJJwHD35eTfHyTKk9OAEOlGwYp98MdePtEQCYIJcd8d6hOFcXLRF6&page=0&breed_ids=${enteredValue}&limit=10`
-    );
-
-    const data = await response.json();
-
-    props.setCats(data);
+    props.onCatSelected(enteredValue);
   };
 
   return (
